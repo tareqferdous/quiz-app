@@ -1,5 +1,5 @@
 import { FaRegCircleUser } from "react-icons/fa6";
-import classes from "../styles/Account.module.css";
+import classes from "../../styles/Account.module.css";
 
 export default function Account() {
   return (
