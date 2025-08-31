@@ -1,5 +1,6 @@
-import Button from "../components/signup/Button";
-import Checkbox from "../components/signup/Checkbox";
+import { Link } from "react-router-dom";
+import Button from "../components/common/Button";
+import Checkbox from "../components/common/Checkbox";
 import Form from "../components/signup/Form";
 import Illustration from "../components/signup/Illustration";
 import TextInput from "../components/signup/TextInput";
@@ -19,9 +20,15 @@ export default function Signup() {
             type="text"
             placeholder="Enter email"
             icon="alternate_email"
+            autocomplete="off"
           />
 
-          <TextInput type="password" placeholder="Enter password" icon="lock" />
+          <TextInput
+            type="password"
+            autocomplete="off"
+            placeholder="Enter password"
+            icon="lock"
+          />
 
           <TextInput
             type="password"
@@ -34,7 +41,7 @@ export default function Signup() {
           <Button>Submit Now</Button>
 
           <div className="info">
-            Already have an account? <a href="login.html">Login</a> instead.
+            Already have an account? <Link to="/login">Login</Link> instead.
           </div>
         </Form>
       </div>

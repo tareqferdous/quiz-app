@@ -1,5 +1,5 @@
 import classes from "../../styles/Answers.module.css";
-import Checkbox from "../signup/Checkbox";
+import Checkbox from "../common/Checkbox";
 
 export default function Answers() {
   return (
