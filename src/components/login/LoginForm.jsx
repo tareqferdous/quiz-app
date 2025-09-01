@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import Button from "../common/Button";
 import Form from "../signup/Form";
@@ -13,6 +13,10 @@ const LoginForm = () => {
 
   const { login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location?.state?.from || "/";
+  console.log(from);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,7 +24,7 @@ const LoginForm = () => {
       setError("");
       setLoading(true);
       await login(email, password);
-      navigate("/");
+      navigate(from);
     } catch (error) {
       setError("Failed to log in!");
       setLoading(false);

@@ -7,6 +7,8 @@ import Login from "./pages/Login";
 import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import Signup from "./pages/Signup";
+import PrivateRoute from "./route/PrivateRoute";
+import PublicRoute from "./route/PublicRoute";
 
 const router = createBrowserRouter([
   {
@@ -19,19 +21,35 @@ const router = createBrowserRouter([
       },
       {
         path: "signup",
-        element: <Signup />,
+        element: (
+          <PublicRoute>
+            <Signup />
+          </PublicRoute>
+        ),
       },
       {
         path: "login",
-        element: <Login />,
+        element: (
+          <PublicRoute>
+            <Login />
+          </PublicRoute>
+        ),
       },
       {
         path: "quiz",
-        element: <Quiz />,
+        element: (
+          <PrivateRoute>
+            <Quiz />
+          </PrivateRoute>
+        ),
       },
       {
         path: "result",
-        element: <Result />,
+        element: (
+          <PrivateRoute>
+            <Result />
+          </PrivateRoute>
+        ),
       },
     ],
   },
