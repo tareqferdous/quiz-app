@@ -16,7 +16,6 @@ const LoginForm = () => {
   const location = useLocation();
 
   const from = location?.state?.from || "/";
-  console.log(from);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
