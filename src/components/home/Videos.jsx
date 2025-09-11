@@ -14,9 +14,9 @@ export default function Videos() {
           hasMore={hasMore}
           next={() => setPage(page + 8)}
         >
-          {videos.map((video) =>
+          {videos.map((video, index) =>
             video.noq > 0 ? (
-              <div key={video.youtubeID}>
+              <div key={index}>
                 <Video
                   title={video.title}
                   id={video.youtubeID}
@@ -24,7 +24,12 @@ export default function Videos() {
                 />
               </div>
             ) : (
-              <Video title={video.title} id={video.youtubeID} noq={video.noq} />
+              <Video
+                key={index}
+                title={video.title}
+                id={video.youtubeID}
+                noq={video.noq}
+              />
             )
           )}
         </InfiniteScroll>
