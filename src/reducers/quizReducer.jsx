@@ -5,14 +5,16 @@ const initialState = null;
 const quizReducer = (state, action) => {
   switch (action.type) {
     case "questions":
-      action.value.forEach((question) =>
-        question.options.forEach((option) => (option.checked = false))
-      );
+      action.value.forEach((question) => {
+        question.options.forEach((option) => {
+          option.checked = false;
+        });
+      });
       return action.value;
 
     case "answer":
       const questions = _.cloneDeep(state);
-      questions[action.questionID].options[action.optionIndex].checked =
+      questions[action.questionId].options[action.optionIndex].checked =
         action.value;
 
       return questions;
